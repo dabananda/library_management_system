@@ -1,110 +1,137 @@
-# Library Management System API
+# 📚 Library Management System – API Design Documentation
 
-## Cloning Existing Project
+## 1. **Project Description**
 
-1. Clone the repository:
+The **Library Management System (LMS)** is a RESTful API designed to manage a library's collection of books, its members, and the borrowing process. The API allows CRUD operations for books and members, tracks borrowing records, and manages book availability in real-time.
 
-   ```bash
-   git clone https://github.com/dabananda/library_management_system_server.git
-   cd library_management_system_server
-   ```
+### ✨ Functionalities:
 
-2. Set up a virtual environment:
+-   Add, update, retrieve, and delete books
+    
+-   Manage authors and their books
+    
+-   Register and manage library members
+    
+-   Handle book borrowing and return processes
+    
+-   Maintain borrowing history for each member
+    
 
-   ```bash
-   # Create a virtual environment
-   python -m venv .venv
+----------
 
-   # Activate the virtual environment (Windows)
-   venv\Scripts\activate
+## 2. **Database Schema (Models Definition)**
 
-   # Activate the virtual environment (macOS/Linux)
-   source venv/bin/activate
-   ```
+### 📘 Book
 
-3. Install dependencies:
+-   **title** (string): Title of the book
+    
+-   **author** (ForeignKey to Author): Author of the book
+    
+-   **ISBN** (string): Unique identifier
+    
+-   **category** (string): Genre or category of the book
+    
+-   **availability_status** (boolean): True if available, False if borrowed
+    
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+### ✍️ Author
 
-4. Configure environment variables (if needed):
+-   **name** (string): Full name of the author
+    
+-   **biography** (text): Brief biography
+    
 
-   ```bash
-   # Copy the example environment file
-   copy .env.example .env  # Windows
-   # cp .env.example .env  # macOS/Linux
+### 🧑‍💼 Member
 
-   # Edit the environment file with your settings
-   ```
+-   **name** (string): Member's full name
+    
+-   **email** (string): Contact email
+    
+-   **membership_date** (date): Date of registration
+    
 
-5. Set up the database:
+### 🔄 BorrowRecord
 
-   ```bash
-   # Run migrations
-   python manage.py migrate
+-   **book** (ForeignKey to Book): Borrowed book
+    
+-   **member** (ForeignKey to Member): Who borrowed the book
+    
+-   **borrow_date** (date): Date of borrowing
+    
+-   **return_date** (date or null): Date of return
+    
 
-   # Create a superuser for the admin panel
-   python manage.py createsuperuser
-   ```
+----------
 
-6. Run the development server:
+## 3. **API Endpoints Definition**
 
-   ```bash
-   python manage.py runserver
-   ```
+### 🔹 Books
 
-   The site should now be available at http://127.0.0.1:8000/
+-   `GET /books/` → List all books
+    
+-   `GET /books/{id}/` → Get details of a specific book
+    
+-   `POST /books/` → Add a new book
+    
+-   `PUT /books/{id}/` → Update details of a book
+    
+-   `DELETE /books/{id}/` → Remove a book
+    
 
-7. Accessing the admin panel:
+### 🔹 Authors
 
-   After creating a superuser, you can access the admin panel at:
-   http://127.0.0.1:8000/admin/
+-   `GET /authors/` → List all authors
+    
+-   `POST /authors/` → Add a new author
+    
 
-## Additional Commands
+### 🔹 Members
 
-```bash
-# Run tests
-python manage.py test
+-   `GET /members/` → List all members
+    
+-   `POST /members/` → Register a new member
+    
+-   `PUT /members/{id}/` → Update member info
+    
+-   `DELETE /members/{id}/` → Remove a member
+    
 
-# Create a new Django app
-python manage.py startapp [app_name]
+### 🔹 Borrowing
 
-# Generate requirements.txt file
-pip freeze > requirements.txt
+-   `POST /borrow/` → Member borrows a book
+    
+-   `POST /return/` → Member returns a book
+    
+-   `GET /borrow-records/` → View all borrow records
+    
 
-# Install dependencies:
-pip install -r requirements.txt
+----------
+
+## 4. **Request & Response Examples**
+
+### ✅ POST `/books/`
+
+#### Request:
+
+```json
+{
+  "title": "The Pragmatic Programmer",
+  "author": 2,
+  "ISBN": "9780201616224",
+  "category": "Software Engineering",
+  "availability_status": true
+}
 ```
 
-## Deactivating the Virtual Environment
+#### Response:
 
-When you're done working on the project:
-
-```bash
-deactivate
+```json
+{
+  "id": 1,
+  "title": "The Pragmatic Programmer",
+  "author": 2,
+  "ISBN": "9780201616224",
+  "category": "Software Engineering",
+  "availability_status": true
+}
 ```
-
----
-
-<div align="center">
-<h1> Dabananda Mitra </h1>
-</div>
-
-<div align="center">
-  <img src="https://res.cloudinary.com/djz3p8sux/image/upload/v1742125099/dabananda_mitra_formal_Small_1x1_o8uxit.png" width="250" height="250" style="border-radius: 50%">
-</div>
-
-<h3 align="center">Software Engineer | Problem Solver | Open Source Enthusiast</h3>
-
----
-
-### 🌐 Connect with Me
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/dabananda) [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/dabananda) [![Twitter](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/dabanandamitra) [![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.om/imdmitra/) [![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/8801304080014) [![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discordapp.com/users/dabanandamitra)
-
----
-
-### 💻 Online Judge Profiles
-
-[![LeetCode](https://img.shields.io/badge/-LeetCode-FFA116?style=for-the-badge)](https://leetcode.com/u/dabananda/) [![Codeforces](https://img.shields.io/badge/-Codeforces-1F8ACB?style=for-the-badge)](https://codeforces.com/profile/dabananda) [![CodeChef](https://img.shields.io/badge/-CodeChef-5B4638?style=for-the-badge)](https://www.codechef.com/users/dabananda) [![HackerRank](https://img.shields.io/badge/-HackerRank-00EA64?style=for-the-badge)](https://www.hackerrank.com/profile/dabananda) [![CodingNinjas](https://img.shields.io/badge/-Coding_Ninjas-FFA500?style=for-the-badge)](https://www.naukri.com/code360/profile/48a35475-0af2-4d4e-8f26-2d793b64843a) [![UVa](https://img.shields.io/badge/-UVa-00B388?style=for-the-badge)](https://uhunt.onlinejudge.org/id/1167157) [![Beecrowd](https://img.shields.io/badge/-Beecrowd-009688?style=for-the-badge)](https://judge.beecrowd.com/en/profile/467832) [![Vjudge](https://img.shields.io/badge/-Vjudge-8A2BE2?style=for-the-badge)](https://vjudge.net/user/dabanandamitra)
