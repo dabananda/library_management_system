@@ -1,0 +1,220 @@
+[
+  {
+    "model": "library.author",
+    "pk": 1,
+    "fields": {
+      "name": "J.K. Rowling",
+      "biography": "British author, best known for Harry Potter."
+    }
+  },
+  {
+    "model": "library.author",
+    "pk": 2,
+    "fields": {
+      "name": "George Orwell",
+      "biography": "Known for dystopian novels like 1984."
+    }
+  },
+  {
+    "model": "library.author",
+    "pk": 3,
+    "fields": {
+      "name": "J.R.R. Tolkien",
+      "biography": "Wrote The Hobbit and The Lord of the Rings."
+    }
+  },
+  {
+    "model": "library.author",
+    "pk": 4,
+    "fields": {
+      "name": "Agatha Christie",
+      "biography": "Queen of crime fiction and detective novels."
+    }
+  },
+
+  {
+    "model": "library.book",
+    "pk": 1,
+    "fields": {
+      "title": "Harry Potter and the Philosopher's Stone",
+      "author": 1,
+      "ISBN": "9780747532743",
+      "category": "Fantasy",
+      "availability_status": true
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 2,
+    "fields": {
+      "title": "Harry Potter and the Chamber of Secrets",
+      "author": 1,
+      "ISBN": "9780747538493",
+      "category": "Fantasy",
+      "availability_status": true
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 3,
+    "fields": {
+      "title": "1984",
+      "author": 2,
+      "ISBN": "9780451524935",
+      "category": "Dystopian",
+      "availability_status": true
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 4,
+    "fields": {
+      "title": "Animal Farm",
+      "author": 2,
+      "ISBN": "9780451526342",
+      "category": "Political Satire",
+      "availability_status": true
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 5,
+    "fields": {
+      "title": "The Hobbit",
+      "author": 3,
+      "ISBN": "9780547928227",
+      "category": "Fantasy",
+      "availability_status": true
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 6,
+    "fields": {
+      "title": "The Fellowship of the Ring",
+      "author": 3,
+      "ISBN": "9780261103573",
+      "category": "Fantasy",
+      "availability_status": true
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 7,
+    "fields": {
+      "title": "Murder on the Orient Express",
+      "author": 4,
+      "ISBN": "9780007119318",
+      "category": "Mystery",
+      "availability_status": true
+    }
+  },
+  {
+    "model": "library.book",
+    "pk": 8,
+    "fields": {
+      "title": "And Then There Were None",
+      "author": 4,
+      "ISBN": "9780062073488",
+      "category": "Mystery",
+      "availability_status": true
+    }
+  },
+
+  {
+    "model": "library.member",
+    "pk": 1,
+    "fields": {
+      "name": "Alice Johnson",
+      "email": "alice@example.com",
+      "membership_date": "2024-01-10"
+    }
+  },
+  {
+    "model": "library.member",
+    "pk": 2,
+    "fields": {
+      "name": "Bob Smith",
+      "email": "bob@example.com",
+      "membership_date": "2024-02-15"
+    }
+  },
+  {
+    "model": "library.member",
+    "pk": 3,
+    "fields": {
+      "name": "Charlie Brown",
+      "email": "charlie@example.com",
+      "membership_date": "2024-03-05"
+    }
+  },
+  {
+    "model": "library.member",
+    "pk": 4,
+    "fields": {
+      "name": "Dana White",
+      "email": "dana@example.com",
+      "membership_date": "2024-03-20"
+    }
+  },
+  {
+    "model": "library.member",
+    "pk": 5,
+    "fields": {
+      "name": "Eva Green",
+      "email": "eva@example.com",
+      "membership_date": "2024-04-01"
+    }
+  },
+
+  {
+    "model": "library.borrowrecord",
+    "pk": 1,
+    "fields": {
+      "book": 3,
+      "member": 1,
+      "borrow_date": "2025-04-01",
+      "return_date": null
+    }
+  },
+  {
+    "model": "library.borrowrecord",
+    "pk": 2,
+    "fields": {
+      "book": 5,
+      "member": 2,
+      "borrow_date": "2025-03-15",
+      "return_date": "2025-04-01"
+    }
+  },
+  {
+    "model": "library.borrowrecord",
+    "pk": 3,
+    "fields": {
+      "book": 1,
+      "member": 3,
+      "borrow_date": "2025-04-03",
+      "return_date": null
+    }
+  },
+  {
+    "model": "library.borrowrecord",
+    "pk": 4,
+    "fields": {
+      "book": 7,
+      "member": 4,
+      "borrow_date": "2025-03-30",
+      "return_date": null
+    }
+  },
+  {
+    "model": "library.borrowrecord",
+    "pk": 5,
+    "fields": {
+      "book": 2,
+      "member": 5,
+      "borrow_date": "2025-03-25",
+      "return_date": null
+    }
+  }
+]
