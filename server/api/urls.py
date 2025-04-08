@@ -15,4 +15,6 @@ urlpatterns = [
     path('', include(router.urls)),
     path('borrow/', borrow_book),
     path('return/', return_book),
+    path('auth/', include('djoser.urls')),
+    path('auth/', include('djoser.urls.jwt')),
 ]
