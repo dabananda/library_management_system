@@ -2,8 +2,8 @@
 
 ## Documentation:
 
--    (Swagger)[https://library-management-system-zeta-ten.vercel.app/swagger/]
--    (Redoc)[https://library-management-system-zeta-ten.vercel.app/redoc/]
+-    [Swagger](https://library-management-system-zeta-ten.vercel.app/swagger/)
+-    [Redoc](https://library-management-system-zeta-ten.vercel.app/redoc/)
 
 ## 1. **Project Description**
 
