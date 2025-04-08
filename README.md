@@ -1,5 +1,10 @@
 # 📚 Library Management System – API Design Documentation
 
+## Documentation:
+
+-    (Swagger)[https://library-management-system-zeta-ten.vercel.app/swagger/]
+-    (Redoc)[https://library-management-system-zeta-ten.vercel.app/redoc/]
+
 ## 1. **Project Description**
 
 The **Library Management System (LMS)** is a RESTful API designed to manage a library's collection of books, its members, and the borrowing process. The API allows CRUD operations for books and members, tracks borrowing records, and manages book availability in real-time.
