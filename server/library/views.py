@@ -1,12 +1,11 @@
 from rest_framework import viewsets, status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework import status
 from django.utils import timezone
 from library.models import Author, Book, Member, BorrowRecord
 from .serializers import AuthorSerializer, BookSerializer, MemberSerializer, BorrowRecordSerializer
-from rest_framework.permissions import IsAuthenticated
 from .permissions import IsLibrarian, IsMember
+from rest_framework.permissions import IsAuthenticated
 
 
 class AuthorViewSet(viewsets.ModelViewSet):
@@ -34,7 +33,7 @@ class BookViewSet(viewsets.ModelViewSet):
 class MemberViewSet(viewsets.ModelViewSet):
     queryset = Member.objects.all()
     serializer_class = MemberSerializer
-    permission_classes = [IsLibrarian]
+    permission_classes = [IsLibrarian]  # Only librarians manage members
 
 
 class BorrowRecordViewSet(viewsets.ModelViewSet):
