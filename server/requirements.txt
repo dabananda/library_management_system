@@ -15,7 +15,6 @@ idna==3.10
 inflection==0.5.1
 oauthlib==3.2.2
 packaging==24.2
-psycopg-binary==3.2.3
 psycopg2-binary==2.9.10
 pycparser==2.22
 PyJWT==2.9.0
