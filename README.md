@@ -1,4 +1,9 @@
-# 📚 Library Management System – API Design Documentation
+# 📚 [Library Management System – API Design Documentation](https://library-management-system-zeta-ten.vercel.app/)
+
+## Documentation
+
+-    [Swagger](https://library-management-system-zeta-ten.vercel.app/swagger/)
+-    [Redoc](https://library-management-system-zeta-ten.vercel.app/redoc/)
 
 ## 1. **Project Description**
 
