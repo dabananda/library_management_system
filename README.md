@@ -9,7 +9,7 @@
 
 The **Library Management System (LMS)** is a RESTful API designed to manage a library's collection of books, its members, and the borrowing process. The API allows CRUD operations for books and members, tracks borrowing records, and manages book availability in real-time.
 
-### ✨ Functionalities:
+### ✨ Functionalities
 
 -   Add, update, retrieve, and delete books
     
